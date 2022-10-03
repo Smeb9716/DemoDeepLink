@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a1deeplink">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.1DeepLink">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter android:autoVerify="true">
+                <!--                Thiết lập để xem các hoạt động-->
+                <action android:name="android.intent.action.VIEW"/>
+                <!--                Thiết lập cho phép mở liên kết từ trình duyệt-->
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <!--                Thiết lập cho phép sử dụng deeplink mà không cần xác định tên ứng dụng-->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <!--                Thiết lập URL = "http://www.abc.com"-->
+                <data android:host="www.abc.com"
+                    android:scheme="http"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".SecondAct"/>
+    </application>
+
+</manifest>
